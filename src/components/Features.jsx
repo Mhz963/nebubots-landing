@@ -75,16 +75,16 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
+    <section id="features" className="pt-8 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4">
             Automates work.<br />
             <span className="text-gray-400 dark:text-gray-500">Even while you sleep.</span>
           </h2>
@@ -98,7 +98,7 @@ const Features = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {features.map((feature, index) => {
             const Icon = feature.icon;
@@ -109,11 +109,11 @@ const Features = () => {
                 whileHover={{ y: -8, scale: 1.02 }}
                 className="p-8 bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl transition-all border border-gray-200 dark:border-gray-800 group"
               >
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                   <Icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">{feature.title}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 font-medium">{feature.subtitle}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-3 font-medium">{feature.subtitle}</p>
                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{feature.description}</p>
               </motion.div>
             );

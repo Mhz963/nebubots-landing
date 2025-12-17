@@ -16,12 +16,13 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <motion.div
+          <motion.a
+            href="#"
             whileHover={{ scale: 1.05 }}
             className="flex items-center"
           >
-            <span className="text-2xl font-bold gradient-text">Nebubots</span>
-          </motion.div>
+            <span className="text-2xl font-bold gradient-text">Chero</span>
+          </motion.a>
           
           <div className="hidden md:flex items-center space-x-8">
             <a href="#features" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium">

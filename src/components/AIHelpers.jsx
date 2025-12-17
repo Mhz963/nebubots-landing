@@ -2,6 +2,7 @@ import { Mail, MessageSquare, Calendar, TrendingUp, Users, Search, Briefcase, Me
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Logo from './Logo';
 
 const AIHelpers = () => {
   const ref = useRef(null);
@@ -97,16 +98,16 @@ const AIHelpers = () => {
   ];
 
   return (
-    <section id="helpers" className="py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+    <section id="helpers" className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4">
             A co-worker who's <span className="gradient-text">always on the clock.</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-4">
@@ -126,6 +127,7 @@ const AIHelpers = () => {
         >
           {helpers.map((helper, index) => {
             const Icon = helper.icon;
+            const isEmmie = helper.name === 'Emmie';
             return (
               <motion.div
                 key={index}
@@ -133,11 +135,23 @@ const AIHelpers = () => {
                 whileHover={{ y: -8, scale: 1.02 }}
                 className="group p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500"
               >
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${helper.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
-                  <Icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-1 text-gray-900 dark:text-gray-100">{helper.name}</h3>
-                <p className="text-sm text-primary-600 dark:text-primary-400 font-semibold mb-3">{helper.role}</p>
+                {isEmmie ? (
+                  <div className="mb-4 flex items-center space-x-3">
+                    <Logo size="default" animated={true} className="group-hover:scale-110 transition-transform" />
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold mb-1 text-gray-900 dark:text-gray-100">{helper.name}</h3>
+                      <p className="text-sm text-primary-600 dark:text-primary-400 font-semibold">{helper.role}</p>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${helper.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-1 text-gray-900 dark:text-gray-100">{helper.name}</h3>
+                    <p className="text-sm text-primary-600 dark:text-primary-400 font-semibold mb-3">{helper.role}</p>
+                  </>
+                )}
                 <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{helper.description}</p>
               </motion.div>
             );
@@ -149,7 +163,7 @@ const AIHelpers = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 text-center"
+          className="mt-12 text-center"
         >
           <motion.button
             whileHover={{ scale: 1.05 }}

@@ -7,28 +7,28 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: 'What can I use Nebubots for?',
-      answer: 'Nebubots is designed to boost productivity and simplify your business operations. You can use it for tasks like administrative work, lead generation, content creation, email outreach, social media management, project management, and much more. It\'s like having an AI Helper that completes your day-to-day tasks.',
+      question: 'What can I use Chero for?',
+      answer: 'Chero is designed to boost productivity and simplify your business operations. You can use it for tasks like administrative work, lead generation, content creation, email outreach, social media management, project management, and much more. It\'s like having an AI Helper that completes your day-to-day tasks.',
     },
     {
       question: 'Is there a money-back guarantee?',
-      answer: 'Yes, we offer a money-back guarantee to ensure your satisfaction with Nebubots. If you\'re not happy with the platform within the specified guarantee period, you can request a full refund.',
+      answer: 'Yes, we offer a money-back guarantee to ensure your satisfaction with Chero. If you\'re not happy with the platform within the specified guarantee period, you can request a full refund.',
     },
     {
-      question: 'Can I invite my team to use Nebubots?',
-      answer: 'Absolutely! Nebubots allows you to collaborate with your team by inviting them to the platform. You can work together seamlessly—all in one place. It\'s perfect for boosting team productivity and coordination.',
+      question: 'Can I invite my team to use Chero?',
+      answer: 'Absolutely! Chero allows you to collaborate with your team by inviting them to the platform. You can work together seamlessly—all in one place. It\'s perfect for boosting team productivity and coordination.',
     },
     {
-      question: 'Does Nebubots have an affiliate program?',
-      answer: 'Yes, we offer a Nebubots affiliate program where you can earn up to 50% commission for every sale made through your unique link.',
+      question: 'Does Chero have an affiliate program?',
+      answer: 'Yes, we offer a Chero affiliate program where you can earn up to 50% commission for every sale made through your unique link.',
     },
     {
-      question: 'Are there tutorials or guides to help me use Nebubots?',
-      answer: 'Absolutely! We provide a variety of resources to help you make the most of Nebubots, including detailed blog posts, case studies, and a Help Center. These materials are designed to guide you through using the platform effectively and answer any questions you may have.',
+      question: 'Are there tutorials or guides to help me use Chero?',
+      answer: 'Absolutely! We provide a variety of resources to help you make the most of Chero, including detailed blog posts, case studies, and a Help Center. These materials are designed to guide you through using the platform effectively and answer any questions you may have.',
     },
     {
-      question: 'Can Nebubots integrate with other software I use?',
-      answer: 'Yes, Nebubots integrates with many leading tools, such as Google Calendar, Notion, Facebook, Gmail and many more, and is also compatible with leading AI systems for seamless integration.',
+      question: 'Can Chero integrate with other software I use?',
+      answer: 'Yes, Chero integrates with many leading tools, such as Google Calendar, Notion, Facebook, Gmail and many more, and is also compatible with leading AI systems for seamless integration.',
     },
   ];
 
@@ -37,16 +37,16 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+    <section id="faq" className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4">
             Questions? <span className="gradient-text">Let's clear things up.</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
