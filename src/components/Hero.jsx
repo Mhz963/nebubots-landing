@@ -113,49 +113,6 @@ const Hero = () => {
             </motion.button>
           </motion.div>
         </motion.div>
-        
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-16"
-        >
-          {[
-            {
-              icon: Mail,
-              title: 'Smart Email Management',
-              description: 'Automatically sync and organize your Gmail messages with intelligent categorization',
-            },
-            {
-              icon: Sparkles,
-              title: 'AI-Powered Replies',
-              description: 'Generate intelligent, context-aware email replies using advanced AI technology',
-            },
-            {
-              icon: Mail,
-              title: 'Auto Sync',
-              description: 'Set up automatic email syncing on your schedule - daily, weekly, or custom intervals',
-            },
-          ].map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl transition-all border border-gray-200 dark:border-gray-800"
-              >
-                <div className="w-14 h-14 bg-gradient-to-br from-primary-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
-                  <Icon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="font-bold text-xl mb-3 text-gray-900 dark:text-gray-100">{feature.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { Mail, MessageSquare, Calendar, TrendingUp, Users, Search, Briefcase, Megaphone, PenTool } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
@@ -56,62 +56,6 @@ const AIHelpers = () => {
       color: 'from-blue-500 to-cyan-500',
       hasLogo: true,
     },
-    {
-      name: 'Cassie',
-      role: 'Customer Support Specialist',
-      description: 'As a smart and charming AI for customer support, Cassie crafts expertly tailored responses to customer queries while maintaining your brand\'s unique voice. Cassie works alongside your human employees, supporting them to deliver exceptional customer support.',
-      icon: MessageSquare,
-      color: 'from-pink-500 to-rose-500',
-    },
-    {
-      name: 'Vizzy',
-      role: 'Virtual Assistant',
-      description: 'A trustworthy AI for business owners and busy entrepreneurs to handle calendars, schedule meetings, plan trips, or simply ask AI questions about daily challenges.',
-      icon: Calendar,
-      color: 'from-green-500 to-emerald-500',
-    },
-    {
-      name: 'Dexter',
-      role: 'Data Analyst',
-      description: 'A data genius seamlessly transforming complex data into precise calculations, forecasts, and clear, actionable business insights that drive results. With Dexter, you gain actionable insights that inform your business decisions.',
-      icon: TrendingUp,
-      color: 'from-orange-500 to-red-500',
-    },
-    {
-      name: 'Scouty',
-      role: 'Recruiter',
-      description: 'Turning hiring challenges into opportunities, crafting magnetic job posts, and guiding smooth team onboarding. Scouty can support recruitment needs across all departments, from HR to finance to customer service.',
-      icon: Users,
-      color: 'from-blue-500 to-indigo-500',
-    },
-    {
-      name: 'Penn',
-      role: 'Copywriter',
-      description: 'Dedicated to writing compelling copy for your ads, blog posts, websites, advertorials and other marketing campaigns that convert readers into customers. For example, Penn can generate engaging ad copy for a new product launch.',
-      icon: PenTool,
-      color: 'from-purple-500 to-pink-500',
-    },
-    {
-      name: 'Seomi',
-      role: 'SEO Specialist',
-      description: 'Streamline business processes with Seomi\'s proven SEO strategies, SEO-optimized blog posts, and AI-powered solutions to boost your website rankings. Seomi brings advanced SEO skills to your team, helping you stay ahead in search rankings.',
-      icon: Search,
-      color: 'from-yellow-500 to-orange-500',
-    },
-    {
-      name: 'Milli',
-      role: 'Sales Manager',
-      description: 'Milli uses your business insights to craft compelling cold call scripts, design persuasive cold emails, and build pitches that help you close deals with confidence. Milli is also capable of adapting sales strategies to different audiences and markets.',
-      icon: Briefcase,
-      color: 'from-teal-500 to-cyan-500',
-    },
-    {
-      name: 'Soshie',
-      role: 'Social Media Manager',
-      description: 'Boost Productivity with AI social media manager by using business automation tools—generate content, plan strategies, schedule posts, find trends, and more. Soshie can collaborate with your marketing and content teams to ensure a unified social media strategy.',
-      icon: Megaphone,
-      color: 'from-violet-500 to-purple-500',
-    },
   ];
 
   return (
@@ -140,8 +84,9 @@ const AIHelpers = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="flex justify-center"
         >
+          <div className="max-w-md w-full">
           {helpers.map((helper, index) => {
             const Icon = helper.icon;
             const isChero = helper.name === 'Chero' && helper.hasLogo;
@@ -193,6 +138,7 @@ const AIHelpers = () => {
               </motion.div>
             );
           })}
+          </div>
         </motion.div>
         
         <motion.div
