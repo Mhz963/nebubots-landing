@@ -1,12 +1,28 @@
 import { Mail, MessageSquare, Calendar, TrendingUp, Users, Search, Briefcase, Megaphone, PenTool } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import Logo from './Logo';
+import { useRef, useEffect, useState } from 'react';
 
 const AIHelpers = () => {
   const ref = useRef(null);
+  const cheroCardRef = useRef(null);
+  const cheroVideoRef = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const isCheroInView = useInView(cheroCardRef, { once: false, amount: 0.5 });
+  const [showVideo, setShowVideo] = useState(false);
+
+  useEffect(() => {
+    if (isCheroInView && cheroVideoRef.current) {
+      setShowVideo(true);
+      cheroVideoRef.current.play().catch(() => {
+        setShowVideo(false);
+      });
+    } else if (!isCheroInView && cheroVideoRef.current) {
+      cheroVideoRef.current.pause();
+      cheroVideoRef.current.currentTime = 0;
+      setShowVideo(false);
+    }
+  }, [isCheroInView]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -33,18 +49,19 @@ const AIHelpers = () => {
 
   const helpers = [
     {
-      name: 'Emmie',
-      role: 'Email Marketing Specialist',
-      description: 'From crafting engaging emails to generating effective win-back flows, Emmie uses AI-powered solutions to turn your subscriber list into revenue. Emmie also helps reduce the cost of email marketing campaigns while increasing ROI.',
+      name: 'Chero',
+      role: 'Email Assistant',
+      description: 'Your AI-powered Gmail assistant that helps you manage and reply to emails automatically. Connect your Gmail account and let Chero help you organize messages, generate intelligent replies, and sync emails on your schedule.',
       icon: Mail,
       color: 'from-blue-500 to-cyan-500',
+      hasLogo: true,
     },
     {
       name: 'Cassie',
       role: 'Customer Support Specialist',
       description: 'As a smart and charming AI for customer support, Cassie crafts expertly tailored responses to customer queries while maintaining your brand\'s unique voice. Cassie works alongside your human employees, supporting them to deliver exceptional customer support.',
       icon: MessageSquare,
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-pink-500 to-rose-500',
     },
     {
       name: 'Vizzy',
@@ -65,14 +82,14 @@ const AIHelpers = () => {
       role: 'Recruiter',
       description: 'Turning hiring challenges into opportunities, crafting magnetic job posts, and guiding smooth team onboarding. Scouty can support recruitment needs across all departments, from HR to finance to customer service.',
       icon: Users,
-      color: 'from-indigo-500 to-blue-500',
+      color: 'from-blue-500 to-indigo-500',
     },
     {
       name: 'Penn',
       role: 'Copywriter',
       description: 'Dedicated to writing compelling copy for your ads, blog posts, websites, advertorials and other marketing campaigns that convert readers into customers. For example, Penn can generate engaging ad copy for a new product launch.',
       icon: PenTool,
-      color: 'from-pink-500 to-rose-500',
+      color: 'from-purple-500 to-pink-500',
     },
     {
       name: 'Seomi',
@@ -98,16 +115,16 @@ const AIHelpers = () => {
   ];
 
   return (
-    <section id="helpers" className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+    <section id="helpers" className="py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">
             A co-worker who's <span className="gradient-text">always on the clock.</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-4">
@@ -127,17 +144,37 @@ const AIHelpers = () => {
         >
           {helpers.map((helper, index) => {
             const Icon = helper.icon;
-            const isEmmie = helper.name === 'Emmie';
+            const isChero = helper.name === 'Chero' && helper.hasLogo;
             return (
               <motion.div
                 key={index}
+                ref={isChero ? cheroCardRef : null}
                 variants={itemVariants}
                 whileHover={{ y: -8, scale: 1.02 }}
                 className="group p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500"
               >
-                {isEmmie ? (
+                {isChero ? (
                   <div className="mb-4 flex items-center space-x-3">
-                    <Logo size="default" animated={true} className="group-hover:scale-110 transition-transform" />
+                    <div className="w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform relative">
+                      <video
+                        ref={cheroVideoRef}
+                        src="/chero-video.mp4"
+                        className={`w-full h-full object-contain absolute inset-0 transition-opacity duration-500 ${
+                          showVideo ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                        }`}
+                        muted
+                        loop
+                        playsInline
+                        preload="auto"
+                      />
+                      <img
+                        src="/chero-logo.jpeg"
+                        alt="Chero Logo"
+                        className={`w-full h-full object-contain transition-opacity duration-500 ${
+                          showVideo ? 'opacity-0' : 'opacity-100'
+                        }`}
+                      />
+                    </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold mb-1 text-gray-900 dark:text-gray-100">{helper.name}</h3>
                       <p className="text-sm text-primary-600 dark:text-primary-400 font-semibold">{helper.role}</p>
@@ -163,7 +200,7 @@ const AIHelpers = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 text-center"
+          className="mt-16 text-center"
         >
           <motion.button
             whileHover={{ scale: 1.05 }}

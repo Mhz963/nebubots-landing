@@ -14,10 +14,7 @@
 
 @layer utilities {
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-600 via-purple-600 to-pink-600 bg-clip-text text-transparent;
-  }
-  .gradient-bg {
-    @apply bg-gradient-to-br from-primary-600 via-purple-600 to-pink-600;
+    @apply bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent;
   }
 }
 
