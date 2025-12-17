@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 const CTASection = () => {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-600 to-purple-600 dark:from-primary-700 dark:to-purple-700">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-600 to-purple-600 dark:from-primary-700 dark:to-purple-700">
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -11,10 +11,10 @@ const CTASection = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-white">
             Your new team with <span className="text-yellow-300">infinite knowledge.</span>
           </h2>
-          <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             AI for business has never been this personal—meet your new team, working hard so you don't have to.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

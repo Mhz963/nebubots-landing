@@ -54,7 +54,7 @@ const Hero = () => {
           animate={isInView ? "visible" : "hidden"}
           className="text-center"
         >
-          <motion.div variants={itemVariants} className="flex justify-center mb-6">
+          <motion.div variants={itemVariants} className="flex justify-center mb-4">
             <div className="flex items-center space-x-2 px-4 py-2 bg-primary-50 dark:bg-primary-900/20 rounded-full border border-primary-200 dark:border-primary-800">
               <Sparkles className="w-4 h-4 text-primary-600 dark:text-primary-400" />
               <span className="text-sm font-medium text-primary-600 dark:text-primary-400">
@@ -65,35 +65,35 @@ const Hero = () => {
           
           <motion.h1
             variants={itemVariants}
-            className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+            className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight"
           >
             <span className="gradient-text">Nebubots</span>
           </motion.h1>
           
           <motion.p
             variants={itemVariants}
-            className="text-2xl md:text-3xl lg:text-4xl text-white mb-6 max-w-4xl mx-auto font-medium drop-shadow-lg"
+            className="text-2xl md:text-3xl lg:text-4xl text-white mb-4 max-w-4xl mx-auto font-medium drop-shadow-lg"
           >
             AI Employees: Your Helpers That Never Sleep
           </motion.p>
           
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-white/90 mb-4 max-w-3xl mx-auto drop-shadow-md"
+            className="text-lg md:text-xl text-white/90 mb-3 max-w-3xl mx-auto drop-shadow-md"
           >
             Build, grow, and scale your business with a team of AI employees.
           </motion.p>
           
           <motion.p
             variants={itemVariants}
-            className="text-base md:text-lg text-white/80 mb-12 max-w-2xl mx-auto drop-shadow-md"
+            className="text-base md:text-lg text-white/80 mb-6 max-w-2xl mx-auto drop-shadow-md"
           >
             Nebubots provides a team of specialized AI assistants including Chero for email management, Emmie for email marketing, and many more to help automate your business tasks.
           </motion.p>
           
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
