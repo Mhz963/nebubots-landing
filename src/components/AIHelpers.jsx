@@ -6,35 +6,11 @@ import { useRef, useEffect, useState } from 'react';
 const AIHelpers = () => {
   const ref = useRef(null);
   const cheroCardRef = useRef(null);
-  const cheroVideoRef = useRef(null);
   const cheroTopVideoRef = useRef(null);
   const cheroTopVideoContainerRef = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
-  const isCheroInView = useInView(cheroCardRef, { once: false, amount: 0.3 });
   const isTopVideoInView = useInView(cheroTopVideoContainerRef, { once: false, amount: 0.3 });
-  const [showVideo, setShowVideo] = useState(false);
   const [showTopVideo, setShowTopVideo] = useState(false);
-
-  useEffect(() => {
-    if (isCheroInView && cheroVideoRef.current) {
-      setShowVideo(true);
-      const playPromise = cheroVideoRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            // Video is playing
-          })
-          .catch((error) => {
-            console.log('Video play failed:', error);
-            setShowVideo(false);
-          });
-      }
-    } else if (!isCheroInView && cheroVideoRef.current) {
-      cheroVideoRef.current.pause();
-      cheroVideoRef.current.currentTime = 0;
-      setShowVideo(false);
-    }
-  }, [isCheroInView]);
 
   useEffect(() => {
     if (isTopVideoInView && cheroTopVideoRef.current) {
@@ -121,11 +97,7 @@ const AIHelpers = () => {
           transition={{ duration: 0.6 }}
           className="flex justify-center mb-8"
         >
-          <div className={`relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-3xl overflow-hidden transition-all duration-500 ${
-            showTopVideo 
-              ? 'ring-4 ring-primary-400/50 dark:ring-primary-500/50 shadow-2xl shadow-primary-500/30 scale-105' 
-              : 'ring-0 scale-100'
-          }`}>
+          <div className="relative w-full max-w-2xl h-64 md:h-80 lg:h-96 overflow-hidden transition-all duration-500">
             <video
               ref={cheroTopVideoRef}
               src="/chero-video.mp4"
@@ -144,14 +116,6 @@ const AIHelpers = () => {
                 showTopVideo ? 'opacity-0' : 'opacity-100'
               }`}
             />
-            {showTopVideo && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="absolute -inset-4 bg-primary-400/20 dark:bg-primary-500/20 rounded-3xl blur-2xl -z-10"
-              />
-            )}
           </div>
         </motion.div>
         
@@ -172,54 +136,20 @@ const AIHelpers = () => {
                 ref={isChero ? cheroCardRef : null}
                 variants={itemVariants}
                 whileHover={{ y: -8, scale: 1.01 }}
-                className={`group p-8 bg-gray-50 dark:bg-gray-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border-2 ${
-                  showVideo 
-                    ? 'border-primary-400 dark:border-primary-500 shadow-primary-500/20 dark:shadow-primary-500/30' 
-                    : 'border-gray-200 dark:border-gray-700 hover:border-primary-400 dark:hover:border-primary-500'
-                }`}
+                className="group p-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 hover:border-primary-300 dark:hover:border-primary-600/50 relative overflow-hidden"
               >
+                {/* Decorative gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/0 to-primary-500/0 group-hover:from-primary-500/5 group-hover:to-purple-500/5 transition-all duration-300 rounded-3xl pointer-events-none"></div>
+                {/* Shine effect */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transform duration-1000 rounded-3xl pointer-events-none"></div>
                 {isChero ? (
-                  <div className="mb-6 flex items-start space-x-6">
-                    <div className={`relative flex-shrink-0 transition-all duration-500 ${
-                      showVideo ? 'scale-110' : 'scale-100'
-                    }`}>
-                      <div className={`w-24 h-24 md:w-28 md:h-28 rounded-2xl flex items-center justify-center relative overflow-hidden transition-all duration-500 bg-gray-100 dark:bg-gray-700/50 ${
-                        showVideo 
-                          ? 'ring-4 ring-primary-400/50 dark:ring-primary-500/50 shadow-lg shadow-primary-500/30' 
-                          : 'ring-0'
-                      }`}>
-                        <video
-                          ref={cheroVideoRef}
-                          src="/chero-video.mp4"
-                          className={`w-full h-full object-contain absolute inset-0 transition-all duration-700 ${
-                            showVideo ? 'opacity-100 z-10 scale-105' : 'opacity-0 z-0 scale-100'
-                          }`}
-                          muted
-                          loop
-                          playsInline
-                          preload="auto"
-                          onLoadedData={() => {
-                            if (isCheroInView && cheroVideoRef.current) {
-                              cheroVideoRef.current.play().catch(() => {});
-                            }
-                          }}
-                        />
-                        <img
-                          src="/chero-logo.jpeg"
-                          alt="Chero Logo"
-                          className={`w-full h-full object-contain transition-all duration-700 ${
-                            showVideo ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
-                          }`}
-                        />
-                      </div>
-                      {showVideo && (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.5 }}
-                          className="absolute -inset-2 bg-primary-400/20 dark:bg-primary-500/20 rounded-3xl blur-xl -z-10"
-                        />
-                      )}
+                  <div className="mb-6 flex items-start space-x-6 relative z-10">
+                    <div className="relative w-24 h-24 md:w-28 md:h-28 flex-shrink-0 overflow-hidden rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl">
+                      <img
+                        src="/chero-logo.jpeg"
+                        alt="Chero Logo"
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                     <div className="flex-1 pt-1">
                       <h3 className="text-3xl md:text-4xl font-bold mb-2 text-gray-900 dark:text-gray-100">{helper.name}</h3>
