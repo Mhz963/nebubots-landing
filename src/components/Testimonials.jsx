@@ -109,7 +109,7 @@ const Testimonials = () => {
             Helpers of the month, <span className="gradient-text">every month.</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            With over 40,000 entrepreneurs from more than 100 countries, Nebubots is the world's leading provider of business automation tools and AI-powered solutions.
+            With over 40,000 entrepreneurs from more than 100 countries, Chero is the world's leading provider of business automation tools and AI-powered solutions.
           </p>
         </motion.div>
         

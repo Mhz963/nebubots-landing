@@ -23,7 +23,7 @@ const CTASection = () => {
               whileTap={{ scale: 0.95 }}
               className="px-10 py-4 bg-white text-primary-600 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all flex items-center justify-center space-x-2 group"
             >
-              <span>Get Nebubots</span>
+              <span>Get Chero</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
             <motion.button

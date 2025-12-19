@@ -36,7 +36,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url(/nebubots.jpg)',
+          backgroundImage: 'url(/chero-logo.jpeg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -67,7 +67,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight"
           >
-            <span className="gradient-text">Nebubots</span>
+            <span className="gradient-text">Chero</span>
           </motion.h1>
           
           <motion.p
@@ -88,7 +88,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-base md:text-lg text-white/80 mb-6 max-w-2xl mx-auto drop-shadow-md"
           >
-            Nebubots provides a team of specialized AI assistants including Chero for email management, Emmie for email marketing, and many more to help automate your business tasks.
+            Chero provides a team of specialized AI assistants for email management, marketing, and many more to help automate your business tasks.
           </motion.p>
           
           <motion.div

@@ -13,9 +13,9 @@ const Footer = () => {
           className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12"
         >
           <div>
-            <h3 className="text-2xl font-bold gradient-text mb-4">Nebubots</h3>
+            <h3 className="text-2xl font-bold gradient-text mb-4">Chero</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Your team of AI employees that never sleep. From email management with Chero to marketing, sales, and more—Nebubots provides specialized AI assistants for every business need.
+              Your team of AI employees that never sleep. From email management to marketing, sales, and more—Chero provides specialized AI assistants for every business need.
             </p>
           </div>
           
@@ -58,7 +58,7 @@ const Footer = () => {
           className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-sm text-gray-400 mb-4 md:mb-0">
-            © 2025 Nebubots. All rights reserved.
+            © 2025 Chero. All rights reserved.
           </p>
           <div className="flex space-x-4">
             {[

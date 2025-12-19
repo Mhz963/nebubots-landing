@@ -2,7 +2,6 @@ import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
-import NebubotsImage from './components/NebubotsImage';
 import AIHelpers from './components/AIHelpers';
 import LearnBusiness from './components/LearnBusiness';
 import Testimonials from './components/Testimonials';
@@ -17,7 +16,6 @@ function App() {
         <Navbar />
         <Hero />
         <Features />
-        <NebubotsImage />
         <AIHelpers />
         <LearnBusiness />
         <Testimonials />

@@ -20,7 +20,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center"
           >
-            <span className="text-2xl font-bold gradient-text">Nebubots</span>
+            <span className="text-2xl font-bold gradient-text">Chero</span>
           </motion.div>
           
           <div className="hidden md:flex items-center space-x-8">
