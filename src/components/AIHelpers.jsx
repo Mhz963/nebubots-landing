@@ -97,7 +97,7 @@ const AIHelpers = () => {
           transition={{ duration: 0.6 }}
           className="flex justify-center mb-8"
         >
-          <div className="relative w-full max-w-2xl h-64 md:h-80 lg:h-96 overflow-hidden transition-all duration-500">
+          <div className="relative w-full max-w-4xl h-96 md:h-[500px] lg:h-[600px] xl:h-[700px] overflow-hidden transition-all duration-500">
             <video
               ref={cheroTopVideoRef}
               src="/chero-video.mp4"
@@ -136,26 +136,21 @@ const AIHelpers = () => {
                 ref={isChero ? cheroCardRef : null}
                 variants={itemVariants}
                 whileHover={{ y: -8, scale: 1.01 }}
-                className="group p-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 hover:border-primary-300 dark:hover:border-primary-600/50 relative overflow-hidden"
+                className="group p-10 md:p-12 bg-gradient-to-br from-white via-gray-50 to-primary-50/30 dark:from-gray-800 dark:via-gray-900 dark:to-primary-900/20 rounded-3xl shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_20px_60px_-15px_rgba(99,102,241,0.3)] transition-all duration-500 border-2 border-gray-200/80 dark:border-gray-700/80 hover:border-primary-400/60 dark:hover:border-primary-500/60 relative overflow-hidden backdrop-blur-sm"
               >
                 {/* Decorative gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/0 to-primary-500/0 group-hover:from-primary-500/5 group-hover:to-purple-500/5 transition-all duration-300 rounded-3xl pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-primary-500/10 group-hover:via-purple-500/8 group-hover:to-pink-500/10 transition-all duration-500 rounded-3xl pointer-events-none"></div>
                 {/* Shine effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transform duration-1000 rounded-3xl pointer-events-none"></div>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transform duration-1500 rounded-3xl pointer-events-none"></div>
+                {/* Animated border glow */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-primary-400/20 via-purple-400/20 to-pink-400/20 blur-xl -z-0"></div>
                 {isChero ? (
-                  <div className="mb-6 flex items-start space-x-6 relative z-10">
-                    <div className="relative w-24 h-24 md:w-28 md:h-28 flex-shrink-0 overflow-hidden rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl">
-                      <img
-                        src="/chero-logo.jpeg"
-                        alt="Chero Logo"
-                        className="w-full h-full object-contain"
-                      />
+                  <div className="relative z-10">
+                    <div className="text-center mb-6">
+                      <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-gray-900 dark:text-gray-100">{helper.name}</h3>
+                      <p className="text-xl md:text-2xl text-primary-600 dark:text-primary-400 font-semibold mb-6">{helper.role}</p>
                     </div>
-                    <div className="flex-1 pt-1">
-                      <h3 className="text-3xl md:text-4xl font-bold mb-2 text-gray-900 dark:text-gray-100">{helper.name}</h3>
-                      <p className="text-base md:text-lg text-primary-600 dark:text-primary-400 font-semibold mb-4">{helper.role}</p>
-                      <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">{helper.description}</p>
-                    </div>
+                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed text-center max-w-3xl mx-auto">{helper.description}</p>
                   </div>
                 ) : (
                   <>

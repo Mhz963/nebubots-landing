@@ -32,18 +32,71 @@ const Hero = () => {
 
   return (
     <section className="relative pt-24 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-center">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: 'url(/chero-logo.jpeg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        {/* Overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40 dark:bg-black/60"></div>
+      {/* Animated Gradient Background */}
+      <div className="absolute inset-0 z-0">
+        {/* Base gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-primary-900/20 dark:to-purple-900/30"></div>
+        
+        {/* Animated gradient overlays */}
+        <motion.div
+          className="absolute inset-0 opacity-30 dark:opacity-20"
+          animate={{
+            backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+          style={{
+            background: 'radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.4) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.4) 0%, transparent 50%)',
+            backgroundSize: '200% 200%',
+          }}
+        />
+        
+        {/* Floating orbs */}
+        <motion.div
+          className="absolute top-20 left-10 w-72 h-72 bg-primary-400/20 dark:bg-primary-500/10 rounded-full blur-3xl"
+          animate={{
+            x: [0, 100, 0],
+            y: [0, 50, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-3xl"
+          animate={{
+            x: [0, -80, 0],
+            y: [0, -60, 0],
+            scale: [1, 1.3, 1],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 right-1/4 w-64 h-64 bg-pink-400/20 dark:bg-pink-500/10 rounded-full blur-3xl"
+          animate={{
+            x: [0, 60, 0],
+            y: [0, -40, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] dark:bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)]"></div>
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -72,21 +125,21 @@ const Hero = () => {
           
           <motion.p
             variants={itemVariants}
-            className="text-2xl md:text-3xl lg:text-4xl text-white mb-4 max-w-4xl mx-auto font-medium drop-shadow-lg"
+            className="text-2xl md:text-3xl lg:text-4xl text-gray-900 dark:text-white mb-4 max-w-4xl mx-auto font-medium"
           >
             AI Employees: Your Helpers That Never Sleep
           </motion.p>
           
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-white/90 mb-3 max-w-3xl mx-auto drop-shadow-md"
+            className="text-lg md:text-xl text-gray-700 dark:text-gray-200 mb-3 max-w-3xl mx-auto"
           >
             Build, grow, and scale your business with a team of AI employees.
           </motion.p>
           
           <motion.p
             variants={itemVariants}
-            className="text-base md:text-lg text-white/80 mb-6 max-w-2xl mx-auto drop-shadow-md"
+            className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto"
           >
             Chero provides a team of specialized AI assistants for email management, marketing, and many more to help automate your business tasks.
           </motion.p>
